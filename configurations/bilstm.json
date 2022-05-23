@@ -1,0 +1,34 @@
+{
+    "train_parameters": {
+        "embeddings": "subword.w2v.bin",
+        "max_length": 20,
+        "replace_numeric_values": null,
+        "subword_pooling": "all",
+        "use_fast_tokenizer": true
+    },
+    "general_parameters": {
+        "debug": 0,
+        "loss_monitor": "val_micro_f1",
+        "early_stopping_patience": 5,
+        "reduce_lr_patience": 2,
+        "reduce_lr_cooldown": 2,
+        "epochs": 2,
+        "batch_size": 16,
+        "workers": 10,
+        "max_queue_size": 100,
+        "use_multiprocessing": true,
+        "run_eagerly": false,
+        "wandb_entity": null,
+        "wandb_project": null
+    },
+    "hyper_parameters": {
+        "learning_rate": 1e-3,
+        "n_layers": 1,
+        "n_units": 256,
+        "dropout_rate": 0.2,
+        "crf": false
+    },
+    "evaluation": {
+        "pretrained_model": ""
+    }
+}

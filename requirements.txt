@@ -1,0 +1,14 @@
+click
+datasets==2.1.0
+gensim==4.2.0
+regex
+scikit-learn>=1.0.2
+seqeval==1.2.2
+tensorflow==2.8.0
+tensorflow-addons==1.16.1
+tf2crf==0.1.24
+tokenizers==0.12.1
+tqdm
+transformers==4.18.0
+wandb==0.12.16
+wget

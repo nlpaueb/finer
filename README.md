@@ -133,7 +133,7 @@ We need to provide the following arguments:
     
 In order to run a train experiment with a `transformer` model we execute:
 ```commandline
-python run_experiment --experiment job_recommendation --method sentence_transformers --mode train
+python run_experiment --method transformer --mode train
 ```
 
 ___
@@ -147,9 +147,6 @@ These parameters are grouped in six groups:
 <br><br>
 1. `train_parameters`: contains the major parameters of the experiment<br><br>
     * `model_name`: transformer model we would like to train (e.g. `bert-base-uncased`, `sec-bert-base`, `sec-bert-num`, `sec-bert-shape`)
-        ``` json
-        "model_name": "sec-bert-base"
-        ```
       
     * `max_length`: max length in tokens of the input sample.<br><br>
     
@@ -204,8 +201,6 @@ These parameters are grouped in six groups:
 4. `evaluation`: evaluation parameters of the experiment
    * `pretrained_model`: name of pretrained model used when `evaluate` mode is selected.<br>
    The name is the folder name of the experiment we want to re-evaluate (located at `/data/experiments/runs`) (e.g. `FINER139_2022_01_01_00_00_00`)<br><br>
-   ``` json      
-      "pretrained_model": "JOB_RECOMMENDATION_2022_03_19_18_42_28"
-   ```
+   
    * `splits`: list of dataset splits to evaluate (e.g. `validation`, `test`)<br><br>
 ---

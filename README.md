@@ -1,10 +1,18 @@
 # [FiNER: Financial Numeric Entity Recognition for XBRL Tagging](https://arxiv.org/abs/2203.06482)
 
+<p align="center" width="100%">
+    <img width="50%" src="https://i.ibb.co/0yz81K9/sec-bert-logo.png">
+</p>
+
 Publicly traded companies are required to submit periodic reports with eXtensive Business Reporting Language (XBRL) word-level tags. Manually tagging the reports is tedious and costly. We, therefore, introduce XBRL tagging as a new entity extraction task for the financial domain and release FiNER-139, a dataset of 1.1M sentences with gold XBRL tags. Unlike typical entity extraction datasets, FiNER-139 uses a much larger label set of 139 entity types. Most annotated tokens are numeric, with the correct tag per token depending mostly on context, rather than the token itself. We show that subword fragmentation of numeric expressions harms BERT's performance, allowing word-level BILSTMs to perform better. To improve BERT's performance, we propose two simple and effective solutions that replace numeric expressions with pseudo-tokens reflecting original token shapes and numeric magnitudes. We also experiment with FIN-BERT, an existing BERT model for the financial domain, and release our own BERT (SEC-BERT), pre-trained on financial filings, which performs best. Through data and error analysis, we finally identify possible limitations to inspire future work on XBRL tagging.
 
 ---
 
 ## Citation Information
+
+Lefteris Loukas, Manos Fergadiotis, Ilias Chalkidis, Eirini Spyropoulou, Prodromos Malakasiotis, Ion Androutsopoulos and George Paliouras<br>
+FiNER: Financial Numeric Entity Recognition for XBRL Tagging<br>
+In the Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (ACL 2022) (Long Papers), Dublin, Republic of Ireland, May 22 - 27, 2022
 
 ```text
 @inproceedings{loukas-etal-2022-finer,

@@ -1,19 +1,19 @@
 {
     "train_parameters": {
-        "model_name": "nlpaueb/sec-bert-shape",
+        "model_name": "nlpaueb/sec-bert-base",
         "max_length": 200,
         "replace_numeric_values": null,
         "subword_pooling": "all",
         "use_fast_tokenizer": true
     },
     "general_parameters": {
-        "debug": 20,
-        "loss_monitor": "val_micro_f1",
+        "debug": false,
+        "loss_monitor": "val_macro_f1",
         "early_stopping_patience": 5,
         "reduce_lr_patience": 2,
         "reduce_lr_cooldown": 2,
-        "epochs": 4,
-        "batch_size": 8,
+        "epochs": 20,
+        "batch_size": 16,
         "workers": 10,
         "max_queue_size": 100,
         "use_multiprocessing": true,
@@ -23,12 +23,13 @@
     },
     "hyper_parameters": {
         "learning_rate": 1e-5,
-        "dropout_rate": 0.1,
         "n_layers": 1,
         "n_units": 256,
+        "dropout_rate": 0.1,
         "crf": false
     },
     "evaluation": {
-        "pretrained_model": ""
+        "pretrained_model": null,
+        "splits": ["validation", "test"]
     }
 }

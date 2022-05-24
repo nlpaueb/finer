@@ -16,7 +16,7 @@ cli = click.Group()
 
 
 @cli.command()
-@click.option('--method', default='bilstm')
+@click.option('--method', default='transformer')
 @click.option('--mode', default='train')
 def run_experiment(method, mode):
     """

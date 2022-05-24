@@ -1,18 +1,18 @@
 {
     "train_parameters": {
-        "embeddings": "subword.w2v.bin",
-        "max_length": 20,
+        "embeddings": "word.w2v.bin",
+        "max_length": 200,
         "replace_numeric_values": null,
         "subword_pooling": "all",
         "use_fast_tokenizer": true
     },
     "general_parameters": {
-        "debug": 0,
-        "loss_monitor": "val_micro_f1",
+        "debug": false,
+        "loss_monitor": "val_macro_f1",
         "early_stopping_patience": 5,
         "reduce_lr_patience": 2,
         "reduce_lr_cooldown": 2,
-        "epochs": 2,
+        "epochs": 20,
         "batch_size": 16,
         "workers": 10,
         "max_queue_size": 100,
@@ -29,6 +29,7 @@
         "crf": false
     },
     "evaluation": {
-        "pretrained_model": ""
+        "pretrained_model": null,
+        "splits": ["validation", "test"]
     }
 }

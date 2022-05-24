@@ -32,7 +32,7 @@ class DataLoader(tf.keras.utils.Sequence):
         self.vectorize_fn = vectorize_fn
         self.batch_size = batch_size
         if Configuration['general_parameters']['debug']:
-            self.indices = np.arange(Configuration['general_parameters']['debug'])
+            self.indices = np.arange(100)
         else:
             self.indices = np.arange(len(dataset))
         self.max_length = max_length
@@ -690,27 +690,19 @@ class FINER:
         # Load weights by checkpoint
         model.load_weights(os.path.join(self.eval_params['pretrained_model_path'], 'weights.h5'))
 
-        validation_dataset = datasets.load_dataset(path='nlpaueb/finer-139', split='validation')
-        validation_generator = DataLoader(
-            dataset=validation_dataset,
-            vectorize_fn=self.vectorize,
-            batch_size=self.general_params['batch_size'],
-            max_length=self.train_params['max_length'],
-            shuffle=False
-        )
+        for split in self.eval_params['splits']:
+            if split not in ['train', 'validation', 'test']:
+                raise Exception(f'Invalid split selected ({split}). Valid options are "train", "validation", "test"')
+            dataset = datasets.load_dataset(path='nlpaueb/finer-139', split=split)
+            generator = DataLoader(
+                dataset=dataset,
+                vectorize_fn=self.vectorize,
+                batch_size=self.general_params['batch_size'],
+                max_length=self.train_params['max_length'],
+                shuffle=False
+            )
 
-        self.evaluate(model=model, generator=validation_generator, split_type='validation')
-
-        test_dataset = datasets.load_dataset(path='nlpaueb/finer-139', split='test')
-        test_generator = DataLoader(
-            dataset=test_dataset,
-            vectorize_fn=self.vectorize,
-            batch_size=self.general_params['batch_size'],
-            max_length=self.train_params['max_length'],
-            shuffle=False
-        )
-
-        self.evaluate(model=model, generator=test_generator, split_type='test')
+            self.evaluate(model=model, generator=generator, split_type=split)
 
     def loss_report(self, history):
         """
